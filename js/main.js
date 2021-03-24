@@ -134,8 +134,12 @@ const filterCards = function (field, value) {
 viewAll.forEach(link => {
 	link.addEventListener('click', () => {
 		const value = link.dataset.field;
-		console.log(value);
-			filterCards("category", value);
+		filterCards("category", value);
+		const id = more.getAttribute("href");
+			document.querySelector(id).scrollIntoView({   // устанавливаем прокрутку (метод scrollIntoView не работает в старых браузерах)
+				behavior: 'smooth', // тип прокрутки плавный 
+				block: 'start',      // до куда прокрутка - в начало
+			})
 	})
 })
 //ДЗ добавила условие для кнопки показать все
